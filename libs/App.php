@@ -143,25 +143,11 @@
         if(isset($_SESSION['id'])){
             header("location: ".$path."");
         }
-
     }
 
 
 
 
 }
-
-
-
-
-
-
-
-
-
-    }
-
-
-    
 
 ?>
