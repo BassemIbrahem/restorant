@@ -133,6 +133,21 @@
         }
     }
 
+    // startingsession 
+    public function startingSession(){
+        session_start();
+    }
+
+    //validating sessions
+    public function validateSession($path){
+        if(isset($_SESSION['id'])){
+            header("location: ".$path."");
+        }
+
+    }
+
+
+
 
 }
 
