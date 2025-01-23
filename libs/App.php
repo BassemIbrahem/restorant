@@ -106,7 +106,7 @@
         if($this->validate($arr) == "empty"){
             echo "<script>alert('one or more inputs are empty')</script>";
         } else {
-            $register_user = $this->link->prepare(query);
+            $register_user = $this->link->prepare($query);
             $register_user->execute($arr);
 
             header("location: ".$path."");
