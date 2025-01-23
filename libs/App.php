@@ -56,7 +56,7 @@
         }
         
         // insert 
-        public function insert(){
+        public function insert($query, $arr, $path){
             if($this->validate($arr) == "empty"){
                 echo "<script>alert('one or more inputs are empty')</script>";
             } else {
@@ -101,7 +101,40 @@
             }
         }
 
+    // register 
+    public function register($query, $arr, $path){
+        if($this->validate($arr) == "empty"){
+            echo "<script>alert('one or more inputs are empty')</script>";
+        } else {
+            $register_user = $this->link->prepare(query);
+            $register_user->execute($arr);
 
+            header("location: ".$path."");
+        }
+    }
+
+    
+    // login
+    public function login($query, $data, $path){
+        // email validation    
+        
+        $login_user = $this->link->prepare(query);
+        $login_user->execute($arr);
+        $fetch = $login_user->fetch(PDO::FETCH_OBJ);
+
+        if($login_user->rowCount()){
+            //password
+            if(password_verify($data['password'], $fetch['password'])){
+                // start sesion vars
+                
+                header("location: ".$path."");
+
+            }
+        }
+    }
+
+
+}
 
 
 
