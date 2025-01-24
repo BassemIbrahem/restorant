@@ -1,4 +1,7 @@
 <?php 
-    define("APPURL", "http://localhost/restorant");
+    $app = new App;
+    $app->startingSession();
+
+    define("APPURL", "http://localhost/restorant/index.php");
 
 ?>

@@ -14,9 +14,9 @@
         public function __construct(){
             $this->link = new PDO("mysql:host=".$this->host.";dbname=".$this->dbname."", $this->user,$this->pass);
 
-            if($this->link){
-                echo "db connection is working";
-            }
+            // if($this->link){
+            //     echo "db connection is working";
+            // }
         }
 
         // select all 
@@ -60,7 +60,7 @@
             if($this->validate($arr) == "empty"){
                 echo "<script>alert('one or more inputs are empty')</script>";
             } else {
-                $insert_record = $this->link->prepare(query);
+                $insert_record = $this->link->prepare($query);
                 $insert_record->execute($arr);
 
                 header("location: ".$path."");
@@ -118,18 +118,21 @@
     public function login($query, $data, $path){
         // email validation    
         
-        $login_user = $this->link->prepare(query);
-        $login_user->execute($arr);
-        $fetch = $login_user->fetch(PDO::FETCH_OBJ);
-
-        if($login_user->rowCount()){
+        $login_user = $this->link->prepare($query);
+        $login_user->execute($data);
+        $fetch = $login_user->fetch(PDO::FETCH_ASSOC);
+        
+        if($login_user->rowCount() > 0){
+            echo $login_user->rowCount();
             //password
-            if(password_verify($data['password'], $fetch['password'])){
+            //if(password_verify($data['password'], $fetch['password'])){
                 // start sesion vars
-                
-                header("location: ".$path."");
+                $_SESSION['email'] = $fetch['email'];
+                $_SESSION['username'] = $fetch['username'];
+                $_SESSION['id'] = $fetch['id'];
+                header("location: ".APPURL."");
 
-            }
+            //}
         }
     }
 
