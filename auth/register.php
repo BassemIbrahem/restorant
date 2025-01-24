@@ -28,16 +28,16 @@
 ?>
 
 <form class="" method="post" action="register.php">
-<input name="username" type="text" id="">
-<input name="email" type="text" id="">
-<input name="password" type="text" id="">
 
-<button name="submit" type="submit">
+    <input name="email" type="text" id="">
+    <br>
+    <input name="username" type="text" id="">
+    <br>
+    <input name="password" type="text" id="">
+    <br>
+    <button name="submit" type="submit">REGISTER</button>
+
 </form>
-
-
-
-
 
 
 <?php require "../includes/footer.php"; ?> 
