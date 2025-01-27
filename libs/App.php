@@ -142,9 +142,9 @@
     }
 
     //validating sessions
-    public function validateSession($path){
+    public function validateSession(){
         if(isset($_SESSION['id'])){
-            header("location: ".$path."");
+            echo "<script>window.location,href='".APPURL."'</script>";
         }
     }
 

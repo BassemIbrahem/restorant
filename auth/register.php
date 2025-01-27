@@ -4,6 +4,7 @@
 
 <?php
     $app = new App;
+    $app->validateSession();
 
     if(isset($_POST['submit'])){
 
