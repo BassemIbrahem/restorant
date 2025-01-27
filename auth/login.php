@@ -20,7 +20,7 @@
 
         $path = "http://localhost/restorant";
 
-        $app->login($query ,$arr , $path );
+        $app->login($query ,$data , $path );
     }
 
 ?>

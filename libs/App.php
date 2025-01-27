@@ -125,14 +125,14 @@
         if($login_user->rowCount() > 0){
             echo $login_user->rowCount();
             //password
-            //if(password_verify($data['password'], $fetch['password'])){
+            if(password_verify($data['password'], $fetch['password'])){
                 // start sesion vars
-                $_SESSION['email'] = $fetch['email'];
-                $_SESSION['username'] = $fetch['username'];
-                $_SESSION['id'] = $fetch['id'];
+                //$_SESSION['email'] = $fetch['email'];
+                //$_SESSION['username'] = $fetch['username'];
+                //$_SESSION['id'] = $fetch['id'];
                 header("location: ".APPURL."");
 
-            //}
+            }
         }
     }
 
