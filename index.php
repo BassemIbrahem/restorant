@@ -8,7 +8,9 @@
     $app = new App;
     $meals_2 = $app->selectAll($query);
 
-
+    $query = "select * from foods where meal_id='3'";    
+    $app = new App;
+    $meals_3 = $app->selectAll($query);
 
 
 
