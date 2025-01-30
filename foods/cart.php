@@ -29,6 +29,7 @@
   </tr>
  
 <tbody>
+    <?php if(count($count_items) > 0):?>
     <?php foreach($cart_items as $cart_item) : ?>
     
         <tr>
@@ -36,6 +37,7 @@
             <td>a href="<?php echo APPURL; ?>/foods/delete-item.php?id=<?php echo $cart_item->id;?></td>
         </tr>
     <?php endforeach; ?>
+    <?php endif; ?>
 </tbody>
 </table>
 <p>total price is <?php echo $cart_price->all_price; ?></p>
