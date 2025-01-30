@@ -1,4 +1,7 @@
 <?php
+
+    $app = new APP();
+    
     if(isset($_POST['submit'])){
 
         $name = $_POST['name'];
@@ -10,17 +13,19 @@
         $user_id = $_SESSION['user_id'];
         
 
-        $query = "insert into orders (item_id , name, price , image , user_id) values (:item_id , :name, :price, :image, :user_id)";
+        $query = "insert into orders (name , email, twon , country , zipcode , total_price, user_id) values (:name , :email, :twon, :country, :zipcode, :total_price, :user_id)";
 
         $arr = [
-            ":item_id" => $item_id,
             ":name" => $name,
-            ":price" => $price,
-            ":image" => $image,
+            ":email" => $email,
+            ":twon" => $twon,
+            ":country" => $country,
+            ":zipcode" => $zipcode,
+            ":total_price" => $total_price,
             ":user_id" => $user_id,
         ];
 
-        $path = "cart.php";
+        $path = "pay.php";
 
         $app->insert($query ,$arr , $path );
     }
