@@ -54,6 +54,19 @@
             }
 
         }
+
+        public function validateCart($q){
+
+            $row = $this->link->query($q);
+            $row->execute();
+            $count = $row->rowCount();
+            return $count;
+
+        }
+
+
+
+
         
         // insert 
         public function insert($query, $arr, $path){
@@ -63,7 +76,7 @@
                 $insert_record = $this->link->prepare($query);
                 $insert_record->execute($arr);
 
-                header("location: ".$path."");
+                echo "<script>window.location.href='".$path."'</script>";
             }
         }
 
