@@ -6,6 +6,15 @@
 
     $cart_price = $app->selectOne("select sum(price) as all_price from cart wjere user_id='$_SESSION[user_id]'");
 
+    if(isset($_POST['submit'])){
+
+        $_SESSION['total_price'] = $cart_price->all_price;
+
+        echo "<script>window.location,href='".APPURL."/food/checkout.php'</script>";
+
+
+    }
+
 
 ?>
 
@@ -30,3 +39,6 @@
 </tbody>
 </table>
 <p>total price is <?php echo $cart_price->all_price; ?></p>
+<form method="POST" action="cart.php">
+    <button type="submit">CLICK </button>
+</form>
