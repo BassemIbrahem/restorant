@@ -102,7 +102,7 @@
                 $delete_record = $this->link->prepare($query);
                 $delete_record->execute();
 
-                header("location: ".$path."");
+                echo "<script>window.location,href='".$path."'</script>";
             
         }
 
