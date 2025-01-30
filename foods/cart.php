@@ -10,7 +10,7 @@
 
         $_SESSION['total_price'] = $cart_price->all_price;
 
-        echo "<script>window.location,href='".APPURL."/food/checkout.php'</script>";
+        echo "<script>window.location,href='checkout.php'</script>";
 
 
     }
