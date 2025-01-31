@@ -25,7 +25,7 @@
 
 ?>
 
-<form class="" method="post" action="login.php">
+<form method="post" action="login.php">
 
     <input name="email" type="text" id="">
     <br>
